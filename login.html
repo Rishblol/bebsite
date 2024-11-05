@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body {
+            font-family:consolas;
+            margin: 0;
+            padding: 0;
+            background-color: #121212;
+            color: #fff;
+        }
+
+        .container {
+            width: 300px;
+            margin: 80px auto;
+            padding: 50px;
+            background-color: #1e1e1e;
+            border-radius: 8px;
+        }
+
+        h2 {
+            font-family: consolas;
+            text-align: center;
+        }
+
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 6px;
+            margin: 8px 0;
+            border: 1px solid #666666;
+            border-radius: 4px;
+            background-color: #333333;
+            color: #fff;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #000000;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: consolas;
+        }
+
+        button:hover {
+            background-color: #4CAF50;
+            transition-duration: 0.2s;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        .error-message {
+            color: red;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Login</h2>
+        <form action="login.php" method="post">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" placeholder="Enter username" required>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="Enter password" required>
+
+            <button type="submit">Login</button>
+        </form>
+        <div class="footer">
+            <p>Don't have an account?</p>
+            <p><a href="signup.html">Sign up here</a></p>
+        </div>
+    </div>
+
+    <script>
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        const error = getQueryParam('error');
+        if (error === 'invalid') {
+            alert('Invalid username or password. Please try again.');
+        }
+    </script>
+
+</body>
+</html>
